@@ -1,0 +1,29 @@
+{
+  "name": "gestor_de_tarefas",
+  "version": "1.0.0",
+  "description": "Projeto realizado através de um desafio técnico de conhecimentos full-stack.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViniciusCunha2805/gestor_de_tarefas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ViniciusCunha2805/gestor_de_tarefas/issues"
+  },
+  "homepage": "https://github.com/ViniciusCunha2805/gestor_de_tarefas#readme",
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

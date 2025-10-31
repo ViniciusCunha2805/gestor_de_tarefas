@@ -1,0 +1,34 @@
+# ==========================
+# NODE / TYPESCRIPT PROJECTS
+# ==========================
+
+# Dependências
+node_modules/
+
+# Compilação do TypeScript
+dist/
+
+# Logs e cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Build de frontends (quando fizer o React)
+apps/web/build/
+apps/web/dist/
+
+# Configurações do editor
+.vscode/
+.idea/
