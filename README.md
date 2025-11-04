@@ -167,4 +167,49 @@ Attachment
 
 ---
 
-## 🗓️ Dia 3
+## 🗓️ Dia 3 — Banco de Dados e Integração com a API
+
+### 🎯 Objetivo
+
+Transformar o modelo de dados em um banco de dados real (SQLite) e conectar a API utilizando o Prisma ORM, garantindo armazenamento persistente e comunicação funcional entre backend e banco.
+
+### 🧩 Principais Conquistas
+
+✅ Configuração completa do Prisma ORM com SQLite.
+✅ Geração e validação do Prisma Client.
+✅ Implementação da primeira rota de API (/tasks) conectada ao banco.
+✅ Testes funcionais realizados via Postman, Thunder Client e curl.
+
+### ⚙️ Detalhes Técnicos
+
+#### Banco de Dados: SQLite integrado via Prisma
+
+Geração do Client: npx prisma generate
+
+Variáveis de Ambiente (.env): DATABASE_URL="file:./prisma/dev.db"
+
+Comando de Teste: curl http://localhost:3000/tasks
+
+### 🧪 Resultados
+
+Após a configuração e migração bem-sucedidas, a rota /tasks retornou registros persistidos no banco SQLite, confirmando que:
+
+A conexão entre Express e Prisma está funcionando corretamente.
+
+As migrações e o schema foram aplicados com sucesso.
+
+Os dados são salvos e recuperados do banco de forma estável.
+
+### 🧰 Stack Utilizada
+
+Node.js 22+;
+
+TypeScript;
+
+Express.js;
+
+Prisma ORM;
+
+SQLite;
+
+Prisma Studio (para visualização e edição dos dados).

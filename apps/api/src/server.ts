@@ -1,15 +1,27 @@
-import express = require("express");
+import express from "express";
+import { PrismaClient } from "./generated/prisma/index.js";
 
-// cria a aplicação (nosso servidor)
 const app = express();
+const prisma = new PrismaClient();
 
-// cria a rota GET /health que responde "ok"
-app.get("/teste", (req, res) => {
-  res.send("ok");
+app.use(express.json());
+
+app.get("/tasks", async (req, res) => {
+  const tasks = await prisma.task.findMany();
+  res.json(tasks);
 });
 
-// define a porta e inicia o servidor
+app.post("/tasks", async (req, res) => {
+  const { title, description } = req.body;
+  const task = await prisma.task.create({
+    data: {
+      title,
+      description,
+      userId: 1, // usuário de teste (ajuste conforme seu banco)
+    },
+  });
+  res.json(task);
+});
+
 const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor rodando na porta ${PORT}`);
-});
+app.listen(PORT, () => console.log(`🚀 Servidor rodando na porta ${PORT}`));

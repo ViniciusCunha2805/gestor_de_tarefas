@@ -1,11 +1,15 @@
 {
   "name": "gestor_de_tarefas",
   "version": "1.0.0",
-  "description": "Projeto realizado através de um desafio técnico de conhecimentos full-stack.",
-  "main": "index.js",
+  "type": "module",
+  "description": "Projeto realizado através de um desafio técnico full-stack.",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node src/server.ts"
+    "dev": "node --import tsx src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev --name init"
   },
   "repository": {
     "type": "git",
@@ -20,10 +24,13 @@
   "homepage": "https://github.com/ViniciusCunha2805/gestor_de_tarefas#readme",
   "devDependencies": {
     "@types/express": "^5.0.5",
+    "prisma": "^6.18.0",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@prisma/client": "^6.18.0",
     "express": "^5.1.0"
   }
 }
