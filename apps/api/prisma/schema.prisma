@@ -26,17 +26,17 @@ model User {
 model Task {
   id          Int          @id @default(autoincrement())
   title       String
-  description String?
+  description String
   status      TaskStatus   @default(PENDING)
   priority    TaskPriority @default(MEDIUM)
   dueDate     DateTime?
-  user        User         @relation(fields: [userId], references: [id])
   userId      Int
   comments    Comment[]
-  tags        Tag[]        @relation("TaskTags")
   attachments Attachment[]
+  tags        Tag[]        @relation("TaskTags")
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
+  User        User         @relation(fields: [userId], references: [id])
 }
 
 model Comment {
@@ -44,26 +44,25 @@ model Comment {
   content   String
   task      Task     @relation(fields: [taskId], references: [id])
   taskId    Int
-  user      User     @relation(fields: [userId], references: [id])
-  userId    Int
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
+}
+
+model Attachment {
+  id           Int      @id @default(autoincrement())
+  filePath     String
+  originalName String
+  size         Int
+  task         Task     @relation(fields: [taskId], references: [id])
+  taskId       Int
+  uploadedAt   DateTime @default(now())
 }
 
 model Tag {
   id    Int    @id @default(autoincrement())
   name  String @unique
   tasks Task[] @relation("TaskTags")
-}
-
-model Attachment {
-  id        Int      @id @default(autoincrement())
-  filename  String
-  url       String
-  task      Task     @relation(fields: [taskId], references: [id])
-  taskId    Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 enum Role {
