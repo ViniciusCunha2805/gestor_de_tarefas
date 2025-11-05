@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/ViniciusCunha2805/gestor_de_tarefas#readme",
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
     "prisma": "^6.18.0",
     "ts-node": "^10.9.2",
@@ -31,6 +32,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.18.0",
+    "cors": "^2.8.5",
     "express": "^5.1.0"
   }
 }

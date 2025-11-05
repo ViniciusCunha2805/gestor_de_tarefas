@@ -1,33 +1,41 @@
-# -------------------------------
-# NODE / TYPESCRIPT PROJECTS
-# -------------------------------
-
-# Dependências
+# Node
 node_modules/
-
-# Compilação de TypeScript
-dist/
-*.tsbuildinfo
-
-# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-*.log
+package-lock.json
 
-# Variáveis de ambiente
+# Ambiente
 .env
+.env.*
 
-# -------------------------------
-# PRISMA
-# -------------------------------
+# Build e cache
+dist/
+build/
+.cache/
+.vite/
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log
+logs/
+*.pid
+*.seed
+*.pid.lock
+
+# Prisma / SQLite
 apps/api/prisma/dev.db
 apps/api/prisma/migrations/
 apps/api/prisma/migration_lock.toml
 
-# -------------------------------
-# IDE / SISTEMA
-# -------------------------------
-.vscode/
-.idea/
-.DS_Store
+# Arquivos temporários
+tmp/
+*.tmp
+*.swp
+*.swo
+
+# Sistema
+*.bak
+*.old

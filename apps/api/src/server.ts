@@ -1,9 +1,17 @@
 import express from "express";
 import { PrismaClient } from "./generated/prisma/index.js";
+import cors from "cors";
 
 const app = express();
 const prisma = new PrismaClient();
 
+app.use(
+  cors({
+    origin: "http://localhost:5173", // libera o frontend
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 app.use(express.json());
 
 // Buscar todas as tarefas
@@ -14,13 +22,9 @@ app.get("/tasks", async (req, res) => {
 
 // Criar uma nova tarefa
 app.post("/tasks", async (req, res) => {
-  const { title, description } = req.body;
+  const { title, description, status, priority } = req.body;
   const task = await prisma.task.create({
-    data: {
-      title,
-      description,
-      userId: 1, // usuário de teste (ajuste conforme seu banco)
-    },
+    data: { title, description, status, priority, userId: 1 },
   });
   res.json(task);
 });

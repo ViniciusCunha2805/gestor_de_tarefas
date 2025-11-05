@@ -268,6 +268,63 @@ Usada para classificar tarefas de forma flexível.
 
 - Atualização do **schema do Prisma** com novos modelos.
 - Execução de nova migração:
+
   ```bash
   npx prisma migrate dev --name add_comments_attachments_and_tags
   ```
+
+## 🗓️ Dia 5 — Integração com o Frontend
+
+### 🎯 Objetivo
+
+Finalizar o desafio integrando a API com o front-end React, criando uma interface funcional e intuitiva para o gestor de tarefas.
+
+---
+
+## 🧠 Funcionalidades
+
+Criação do front-end com Vite + React + TypeScript;
+
+Integração direta com a API (busca e criação de tarefas via Axios);
+
+Implementação de layout Kanban, separando as tarefas em três colunas:
+
+🕒 Pendente
+
+🛠️ Em progresso
+
+✅ Concluída
+
+Estilização aprimorada com CSS responsivo, cores temáticas e espaçamento proporcional à tela;
+
+Campos adicionais no formulário de criação de tarefas (título, descrição, prioridade, status);
+
+Conexão total entre frontend + backend + banco de dados (SQLite via Prisma);
+
+Projeto agora totalmente funcional, pronto para futuras melhorias como drag-and-drop ou autenticação.
+
+---
+
+## 🧩 Tecnologias Usadas
+
+- React + Vite + TypeScript
+
+- Axios para comunicação com a API
+
+- Node.js + Express
+
+- Prisma ORM + SQLite
+
+- CSS moderno (layout responsivo e tema escuro)
+
+---
+
+## ⚙️ Configuração
+
+### Rodar o backend
+
+```bash
+cd apps/api
+npm run dev
+
+```
