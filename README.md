@@ -213,3 +213,61 @@ Prisma ORM;
 SQLite;
 
 Prisma Studio (para visualização e edição dos dados).
+
+## 🗓️ Dia 4 — Relacionamentos e Expansão da API
+
+### 🎯 Objetivo
+
+Ampliar o sistema para lidar com relacionamentos entre tarefas e outros elementos, como **comentários**, **anexos** e **tags**, permitindo uma interação mais completa com os dados no banco.
+
+---
+
+## 🧩 Estrutura e Modelos Adicionados
+
+### 💬 Comment
+
+Representa comentários vinculados a uma tarefa específica.
+
+| Campo       | Tipo   | Descrição           |
+| :---------- | :----- | :------------------ |
+| `id`        | number | identificador único |
+| `content`   | string | texto do comentário |
+| `taskId`    | number | tarefa relacionada  |
+| `createdAt` | date   | data de criação     |
+
+---
+
+### 📎 Attachment
+
+Representa arquivos anexados a uma tarefa.
+
+| Campo          | Tipo   | Descrição                        |
+| :------------- | :----- | :------------------------------- |
+| `id`           | number | identificador único              |
+| `filePath`     | string | caminho onde o arquivo foi salvo |
+| `originalName` | string | nome original do arquivo         |
+| `size`         | number | tamanho em bytes                 |
+| `taskId`       | number | tarefa associada                 |
+| `uploadedAt`   | date   | data de upload                   |
+
+---
+
+### 🏷️ Tag
+
+Usada para classificar tarefas de forma flexível.
+
+| Campo   | Tipo    | Descrição                |
+| :------ | :------ | :----------------------- |
+| `id`    | number  | identificador único      |
+| `name`  | string  | nome da tag              |
+| `tasks` | relação | tarefas vinculadas (N:N) |
+
+---
+
+## ⚙️ Migração e Configuração
+
+- Atualização do **schema do Prisma** com novos modelos.
+- Execução de nova migração:
+  ```bash
+  npx prisma migrate dev --name add_comments_attachments_and_tags
+  ```
